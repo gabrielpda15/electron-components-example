@@ -1,6 +1,6 @@
 # Eletron Components Example
 
-** This is not a library for [Electron](https://www.electronjs.org/) **
+**This is not a library for [Electron](https://www.electronjs.org/)**
 
 ## Installation
 
@@ -12,5 +12,5 @@ Run `yarn run dev` for a development server. The app will open automatically. Th
 
 ## Build
 
-** This project does not support fully build and distribution, yet. **
+**This project does not support fully build and distribution, yet.**
 Run `yarn run build` to build your project. The final result will be stored in `build/`.
