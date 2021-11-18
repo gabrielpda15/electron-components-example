@@ -32,7 +32,9 @@ function createWindow() {
     };
 
     mainWindow.loadURL(`${url.protocol}//${url.pathname}`);
-    mainWindow.webContents.openDevTools();
+    if (process.env.DEBUG == 'true') {
+        mainWindow.webContents.openDevTools();
+    }
     mainWindow.on('closed', function () {
         mainWindow = null
     });

@@ -79,20 +79,22 @@ export class ElectronReloader {
     }
 
     private createDefaultEvents(): void {
-        this.on('before-reload', () => {
-            this.windows.forEach(bw => {
-                if (bw.webContents.isDevToolsOpened()) {
-                    bw.webContents.closeDevTools();
+        if (process.env.DEBUG == 'true') {
+            this.on('before-reload', () => {
+                this.windows.forEach(bw => {
+                    if (bw.webContents.isDevToolsOpened()) {
+                        bw.webContents.closeDevTools();
+                    }
+                });
+            });
+    
+            this.on('after-reload', () => {
+                if (this.mainWindowId != null) {
+                    let bw = this.windows.find(x => x.id === this.mainWindowId);
+                    if (bw) bw.webContents.openDevTools();
                 }
             });
-        });
-
-        this.on('after-reload', () => {
-            if (this.mainWindowId != null) {
-                let bw = this.windows.find(x => x.id === this.mainWindowId);
-                if (bw) bw.webContents.openDevTools();
-            }
-        });
+        }
     }
 
     private resetHandler(...args: any[]): void {

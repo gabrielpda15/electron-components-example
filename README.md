@@ -5,6 +5,7 @@
 ## Installation
 
 You will need [yarn](https://yarnpkg.com/) for this project. Just run `yarn install` to install the dependencies.
+Then you need to copy the file [.default.env](./blob/main/.default.env) and rename it to `.env`
 
 ## Development Server
 
