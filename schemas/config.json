@@ -1,0 +1,46 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "./config.json",
+	"title": "JSON Schema for electron app configuration",
+	"type": "object",
+	"properties": {
+		"title": {
+			"description": "Your app title to be shown in the window.",
+			"type": "string"
+		}
+	},
+    "required": [ 
+        "title"
+    ],
+	"definitions": {
+		"pathPattern":{
+			"anyOf":[
+				{
+					"type":"string"
+				},
+				{
+					"type":"object",
+					"description":"Regular expression",
+					"properties":
+					{
+						"regex":
+						{
+							"type":"string",
+							"pattern":"^((?:(?:[^?+*{}()[\\]\\\\|]+|\\\\.|\\[(?:\\^?\\\\.|\\^[^\\\\]|[^\\\\^])(?:[^\\]\\\\]+|\\\\.)*\\]|\\((?:\\?[:=!]|\\?<[=!]|\\?>)?(?1)??\\)|\\(\\?(?:R|[+-]?\\d+)\\))(?:(?:[?+*]|\\{\\d+(?:,\\d*)?\\})[?+]?)?|\\|)*)$"
+						}
+					},
+					"additionalProperties":false,
+					"required":[ "regex" ]
+				}
+			]
+		},
+		"variables": {
+			"anyOf": [
+				{
+					"const":"{{curdir}}",
+					"description":"The current directory"
+				}
+			]
+		}
+	}
+}
