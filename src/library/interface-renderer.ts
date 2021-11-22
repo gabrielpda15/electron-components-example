@@ -66,10 +66,29 @@ export class InterfaceRenderer {
                 const file = Reflect.getMetadata('component-file', component);
                 template = fs.readFileSync(path.resolve(path.dirname(file), options.templateUrl), { encoding: 'utf-8' });
             }
+
+            const instance = new component();
+            if (typeof instance?.onInit == 'function') instance.onInit();
     
+            const interpolationRegex = /\{\{[ ]*([^ ]*)[ ]*\}\}/g;
+            const match = template.match(interpolationRegex);
+            if (match && match.length > 0) {
+                template = template.replace(interpolationRegex, (value, ...args) => {
+                    if ((<string>args[0]).endsWith('()')) {
+                        return instance[(<string>args[0]).replace('()', '')]();
+                    } else {
+                        return instance[args[0]];
+                    }
+                });
+            }
+
+            if (typeof instance?.onViewInit == 'function') instance.onViewInit();
+
             for (let i = 0; i < elements.length; i++) {
                 elements.item(i).innerHTML = template;
             }
+
+            if (typeof instance?.onAfterViewInit == 'function') instance.onAfterViewInit();
         }
     }
 
