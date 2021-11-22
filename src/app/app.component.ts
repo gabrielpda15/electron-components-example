@@ -1,6 +1,6 @@
-import { ElectronComponent } from '../library/decorators';
+import { Component } from '../library/decorators';
 
-@ElectronComponent({
+@Component({
     selector: 'app-root',
     templateUrl: './app.component.html'
 }, __filename)

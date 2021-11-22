@@ -1,7 +1,7 @@
-import { ElectronModule } from '../../library/decorators';
+import { Module } from '../../library/decorators';
 import { TestComponent } from './test.component';
 
-@ElectronModule({
+@Module({
     bootstrap: TestComponent
 })
 export class TestModule { }

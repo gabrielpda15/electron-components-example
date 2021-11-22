@@ -1,9 +1,9 @@
-import { ElectronModule } from '../library/decorators';
+import { Module } from '../library/decorators';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { TestModule } from './testmodule/test.module';
 
-@ElectronModule({
+@Module({
     imports: [ TestModule ],
     declarations: [ HeaderComponent ],
     bootstrap: AppComponent
