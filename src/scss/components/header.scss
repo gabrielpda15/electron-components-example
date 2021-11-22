@@ -1,0 +1,31 @@
+.header-content {
+  height: 25px;
+  max-height: 25px;
+  min-height: 25px;
+
+  background: linear-gradient(
+    0deg,
+    var(--app-darker-purple) 0%,
+    var(--app-dark-purple) 100%
+  );
+  color: var(--light);
+
+  -webkit-app-region: drag;
+
+  .header-title {
+    font-size: small;
+  }
+
+  button {
+    background-color: transparent;
+    border: 0;
+    padding: 0px 5px;
+
+    -webkit-app-region: no-drag;
+
+    .icon.close-x,
+    .icon.minimize {
+      zoom: 50%;
+    }
+  }
+}

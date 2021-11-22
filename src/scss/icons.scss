@@ -1,0 +1,42 @@
+.icon {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+  
+    &.close-x {
+      width: 24px;
+      height: 24px;
+      background: url("./assets/icons/close.svg") no-repeat;
+    }
+  
+    &.minimize {
+      width: 24px;
+      height: 24px;
+      background: url("./assets/icons/minimize.svg") no-repeat;
+    }
+  
+    &.close-x.light {
+      width: 24px;
+      height: 24px;
+      background: url("./assets/icons/close-light.svg") no-repeat;
+    }
+  
+    &.minimize.light {
+      width: 24px;
+      height: 24px;
+      background: url("./assets/icons/minimize-light.svg") no-repeat;
+    }
+  
+    &.icon-btn {
+      opacity: 0.65;
+  
+      &:hover {
+        opacity: 0.85;
+      }
+  
+      &:active {
+        opacity: 0.5;
+      }
+    }
+  }
+  
